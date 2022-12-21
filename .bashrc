@@ -12,3 +12,8 @@ export LC_CTYPE=en_US.UTF-8
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+
+alias dotman="/home1/irteam/dot/dotman/dotman.sh"
+
+export DOT_DEST="dot"
+export DOT_REPO="git@github.com:boychaboy/dotfiles"
