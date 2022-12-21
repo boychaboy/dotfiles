@@ -8,3 +8,8 @@ sudo apt install tmux-plugin-manager
 # yum
 sudo yum install tmux 
 ```
+**python3**
+```shell
+sudo yum update -y
+sudo yum install -y python3
+```
