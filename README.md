@@ -45,10 +45,6 @@ export HOME=""
 mkdir -p $HOME/.dotfiles.backup
 mv ~/.[^.]* $HOME/.dotfiles.backup/
 
-# get new dotfiles
-git clone git@github.com:boychaboy/dotfiles.git
-mv dotfiles/* $HOME/
-
 # install zsh
 sudo yum install zsh # irteamsu
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh # irteam
@@ -76,5 +72,15 @@ fi
 sudo yum install epel-release
 sudo yum install -y tmux
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm  # tmux plugin manager
+
+# get new dotfiles
+git clone git@github.com:boychaboy/dotfiles.git
+mv dotfiles/* $HOME/
+
 tmux source $HOME/.tmux.conf
 ```
+**issue**
+- [How to Install Vim 8.2 on CentOS 7](https://phoenixnap.com/kb/how-to-install-vim-centos-7)
+- [How to install the latest stable tmux on CentOS 7](https://liyang85.wordpress.com/2017/07/28/how-to-install-the-latest-stable-tmux-on-centos-7/)
+- How to Compile VIM with python3.6++
+
