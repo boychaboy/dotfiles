@@ -42,8 +42,8 @@ export HOME=""
 
 ```shell
 # backup previous dotfiles
-mkdir -p ~/.dotfiles.backup
-mv ~/.[^.]* ~/.dotfiles.backup/
+mkdir -p $HOME/.dotfiles.backup
+mv ~/.[^.]* $HOME/.dotfiles.backup/
 
 # get new dotfiles
 git clone git@github.com:boychaboy/dotfiles.git
@@ -52,12 +52,29 @@ mv dotfiles/* $HOME/
 # install zsh
 sudo yum install zsh # irteamsu
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh # irteam
-mv ~/.oh-my-zsh/ $HOME/
-mv ~/.zshrc $HOME/
+
+# set zsh as default shell
+if [ ! $SHELL = "/usr/bin/zsh" ]; then
+  echo "Setting your default shell as zsh"
+  sudo chsh -s /usr/bin/zsh
+fi 
+# install oh-my-zsh & themes
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
+if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+if [ ! -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 
 # install tmux
 sudo yum install epel-release
 sudo yum install -y tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  # tmux plugin manager
-tmux source ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm  # tmux plugin manager
+tmux source $HOME/.tmux.conf
 ```
