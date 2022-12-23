@@ -82,5 +82,16 @@ tmux source $HOME/.tmux.conf
 **issue**
 - [How to Install Vim 8.2 on CentOS 7](https://phoenixnap.com/kb/how-to-install-vim-centos-7)
 - [How to install the latest stable tmux on CentOS 7](https://liyang85.wordpress.com/2017/07/28/how-to-install-the-latest-stable-tmux-on-centos-7/)
-- How to Compile VIM with python3.6++ [TBD]
+- How to Compile VIM with python3.6++   
+```shell
+# 1. remove installed VIM
+sudo rm -rf /lib/bin/vim
+# 2. clone & configure vim
+git clone https://github.com/vim/vim.git
+cd vim/src
+# 3. configure and install
+./configure --enable-cscope --enable-multibyte  --enable-rubyinterp --enable-pythoninterp --enable-python3interp --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu --enable-fail-if-missing
+make
+sudo make install
+```
 
