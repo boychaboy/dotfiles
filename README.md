@@ -80,6 +80,12 @@ mv dotfiles/* $HOME/
 tmux source $HOME/.tmux.conf
 source ~/.zshrc
 source ~/.vimrc
+
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+zsh ~/miniconda.sh -b -p
+rm ~/miniconda.sh
+echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
+
 ```
 **issue**
 - [How to Install Vim 8.2 on CentOS 7](https://phoenixnap.com/kb/how-to-install-vim-centos-7)
