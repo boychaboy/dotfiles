@@ -78,6 +78,8 @@ git clone git@github.com:boychaboy/dotfiles.git
 mv dotfiles/* $HOME/
 
 tmux source $HOME/.tmux.conf
+source ~/.zshrc
+source ~/.vimrc
 ```
 **issue**
 - [How to Install Vim 8.2 on CentOS 7](https://phoenixnap.com/kb/how-to-install-vim-centos-7)
@@ -94,4 +96,7 @@ tmux source $HOME/.tmux.conf
     make
     sudo make install
     ```
-
+- `The ycmd server SHUT DOWN (restart with :YcmRestartServer)` error
+    - `CMake 3.14 or higher is required`: [[Linux] CentOS7 Cmake version update or install](https://codinghero.tistory.com/174)
+    - `Your C++ compiler does NOT fully support C++17.`: [Your C++ compiler does NOT fully support C++17](https://stackoverflow.com/questions/65284572/your-c-compiler-does-not-fully-support-c17)
+    
