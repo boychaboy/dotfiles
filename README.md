@@ -38,6 +38,18 @@ fi
 export HOME=""
 ```
 
+### MacOS
+
+## Homebrew for MacOS
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+brew doctor
+brew update
+brew bundle --file=dotfiles/.brewfile
+```
+
+
 ### CentOS
 
 ```shell
