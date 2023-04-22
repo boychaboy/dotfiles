@@ -31,16 +31,9 @@ fi
 
 ## Installation
 
-:warning: Before you begin, set `${HOME}` !
-
-```shell
-# check ${HOME}
-export HOME=""
-```
-
 ### MacOS
 
-## Homebrew for MacOS
+#### Homebrew for MacOS
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
@@ -48,7 +41,20 @@ brew doctor
 brew update
 brew bundle --file=dotfiles/.brewfile
 ```
+#### Oh-my-zsh
 
+```bash
+# oh-my-zsh
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+# chsh -s $(which zsh)
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips
+# export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Alias tip: "
+```
 
 ### CentOS
 
