@@ -85,6 +85,26 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/younghoon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/younghoon/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/younghoon/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/younghoon/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 # Set personal aliases
 # For a full list of active aliases, run `alias`.
 alias ca="conda activate"
@@ -96,6 +116,3 @@ alias cp="cp -i"
 alias jobs="jobs -l"
 alias cat="bat"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(/opt/homebrew/bin/brew shellenv)"
