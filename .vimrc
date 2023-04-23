@@ -40,7 +40,8 @@ call vundle#begin()
     Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
     Plugin 'rosenfeld/conque-term'              " Consoles as buffers
     Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'flazz/vim-colorschemes'             " Colorschemes
+    Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
+    Plugin 'tribela/vim-transparent'
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'garbas/vim-snipmate'                " Snippets manager
@@ -51,7 +52,6 @@ call vundle#begin()
     "-------------------=== Languages support ===-------------------
     Plugin 'tpope/vim-commentary'               " Comment stuff out
     Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
-    " Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
     Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin
 
     "-------------------=== Python  ===-----------------------------
@@ -75,10 +75,9 @@ syntax on                                       " To fix csv.vim error
 "=====================================================
 "" General settings
 "=====================================================
-" syntax enable                               " syntax highlight
-
+syntax enable                               " syntax highlight
 set t_Co=256                                " set 256 colors
-colorscheme wombat256mod                    " set color scheme
+colorscheme codedark                        " set color scheme
 
 set number                                  " show line numbers
 set ruler
