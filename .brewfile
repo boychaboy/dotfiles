@@ -1,5 +1,3 @@
-tap "homebrew/cask-fonts"
-
 brew "jq"
 brew "git"
 brew "bat"
@@ -8,8 +6,3 @@ brew "ctags"
 brew "vim"
 brew "fzf"
 brew "tmux"
-
-cask "iterm2"
-cask "font-hack-nerd-font"
-cask "docker"
-cask "anaconda"
