@@ -250,8 +250,9 @@ let g:pymode_syntax_builtin_types=g:pymode_syntax_all
 let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
 let g:pymode_syntax_docstrings=g:pymode_syntax_all
 
-let g:pymode_options_max_line_length = 88
+let g:pymode_options_max_line_length = 120
 let g:pymode_options_colorcolumn = 1
+hi ColorColumn ctermbg=8
 
 " highlight 'long' lines (>= 80 symbols) in python files
 " augroup vimrc_autocmds
