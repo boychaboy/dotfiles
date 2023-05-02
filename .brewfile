@@ -1,8 +1,5 @@
 brew "jq"
 brew "git"
-brew "bat"
 brew "tldr"
-brew "ctags"
 brew "vim"
-brew "fzf"
 brew "tmux"
