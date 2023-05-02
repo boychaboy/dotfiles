@@ -1,31 +1,11 @@
 #!/bin/bash
 
-# ----------------------------------------------------------------------
-# | 0. Clone and create symbolic link                                  |
-# ----------------------------------------------------------------------
-echo "Clone dotfile repository"
-echo "  git@github.com:boychaboy/dotfiles.git >> ${HOME}/.dotfiles"
-echo ""
-read -p "Proceed (y/n [n])? " choice
-case "$choice" in 
-    y|Y ) 
-        if [ ! -d ${HOME}/.dotfiles ]; then
-            git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles
-        else
-            echo "${HOME}/.dotfiles already exists"
-            read -p "Overwrite (y/n [n])? " choice
-                case "$choice" in 
-                    y|Y )
-                        rm -rf ${HOME}/.dotfiles
-                        git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles;;
-                    n|N|"" );;
-                esac
-        fi;;
-    n|N|"" )
-esac
-echo ""
+printf "Welcome to boychaboy's MAC OS installer!\n\n"
 
-echo "Backup existing dotfiles"
+# ----------------------------------------------------------------------
+# | Backup & Link                                                      |
+# ----------------------------------------------------------------------
+printf "\033[33mBackup existing dotfiles and link new files...\033[0m\n"
 OLD_DOTFILES=""
 # .zshrc
 if [ -f ${HOME}/.zshrc ]; then
@@ -94,7 +74,8 @@ esac
 # ----------------------------------------------------------------------
 
 echo ""
-echo "Install homebrew and tap all packages"
+printf "\033[33mInstalling homebrew and tap all packages...\033[0m\n"
+echo ""
 read -p "Proceed (y/n [n])? " choice
 
 case "$choice" in 
@@ -106,7 +87,11 @@ case "$choice" in
         fi
         brew doctor
         brew update
-        brew bundle --file=${HOME}/.dotfiles/.brewfile;;
+        brew bundle --file=${HOME}/.dotfiles/.brewfile
+        brew install fzf
+        brew install ctags
+        brew install bat
+        brew install wget;;
     n|N|"" )
 esac
 
@@ -125,10 +110,13 @@ fi
 if [ ! -d ${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
+if [ ! -d ${HOME}/.oh-my-zsh/custom/plugins/alias-tips ]; then
+  git clone https://github.com/zsh-users/alias-tips ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
+fi
 if [ ! -d ${HOME}/.oh-my-zsh/custom/themes/powerlevel10k ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
-echo "> Successfully installed oh-my-zsh, zsh-syntax-highlighting, zsh-autosuggestions, powerlevel10k"
+echo "> Successfully installed oh-my-zsh, zsh-syntax-highlighting, zsh-autosuggestions, alias-tips, and powerlevel10k"
 
 # ----------------------------------------------------------------------
 # | 3. vim                                                             |
@@ -173,13 +161,10 @@ read -p "Proceed (y/n [n])? " choice
 
 case "$choice" in
     y|Y )
-        mkdir -p ~/miniconda3
-        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda3/miniconda.sh
-        bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-        rm -rf ~/miniconda3/miniconda.sh
-        echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
-        # ~/miniconda3/bin/conda init bash
-        # ~/miniconda3/bin/conda init zsh
+        mkdir -p ${HOME}/miniconda3
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -O ${HOME}/miniconda3/miniconda.sh
+        bash ${HOME}/miniconda3/miniconda.sh -b -u -p ${HOME}/miniconda3
+        rm -rf ${HOME}/miniconda3/miniconda.sh
         source ${HOME}/.zshrc;;
     n|N|"" )
 esac
