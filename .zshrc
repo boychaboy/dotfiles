@@ -99,5 +99,3 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias jobs="jobs -l"
 alias cat="bat"
-
-export PATH="$HOME/miniconda3/bin:$PATH"  # miniconda

@@ -31,20 +31,10 @@ call vundle#begin()
 
     "-------------------=== Code/Project navigation ===-------------
     Plugin 'scrooloose/nerdtree'                " Project and file navigation
+    Plugin 'preservim/nerdcommenter'            " Fast commenter
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
-    Plugin 'preservim/nerdcommenter'
-
-    "-------------------=== Other ===-------------------------------
-    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
-    Plugin 'tribela/vim-transparent'
-    Plugin 'lyokha/vim-xkbswitch'               " Input source control
+    Plugin 'github/copilot'                     " Suggest code and entire functions in real-time
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'garbas/vim-snipmate'                " Snippets manager
@@ -66,8 +56,19 @@ call vundle#begin()
     Plugin 'chrisbra/csv.vim'                   " CSV formatter
     Plugin 'goerz/jupytext.vim'                 " Open and edit .ipynb notebooks in vim
     Plugin 'metakirby5/codi.vim'                " line-by-line running for interpretable language (great debugging tool)
+
     "-------------------=== Tmux ===-----------------------------
     Plugin 'christoomey/vim-tmux-navigator'     " navigate seamlessly between vim and tmux splits 
+
+    "-------------------=== Other ===-------------------------------
+    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
+    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
+    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
+    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
+    Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
+    Plugin 'tribela/vim-transparent'
 
 call vundle#end()                           " required
 filetype on
@@ -255,7 +256,7 @@ let g:pymode_syntax_docstrings=g:pymode_syntax_all
 
 let g:pymode_options_max_line_length = 120
 let g:pymode_options_colorcolumn = 1
-hi ColorColumn ctermbg=8
+hi ColorColumn ctermbg=0
 
 " highlight 'long' lines (>= 80 symbols) in python files
 " augroup vimrc_autocmds
@@ -279,7 +280,6 @@ let g:pymode_run_bind='<F5>'
 " linting
 let g:pymode_lint = 0
 
-
 "=====================================================
 "" YouCompleteMe settings
 "=====================================================
@@ -298,7 +298,7 @@ nmap <leader>d :YcmCompleter GoToDefinition<CR>
 " 
 let g:ale_linters = {'python': ['flake8']}              "Lint
 let g:ale_fixers = {'python': ['black']}             "Fix errors
-let g:ale_python_flake8_options = '--max-line-length=88'
+let g:ale_python_flake8_options = '--max-line-length=120'
 let g:ale_python_flake8_options = '--ignore=E501,W503,E203,E702'
 let g:ale_lint_on_save = 1              "Lint when saving a file
 let g:ale_fix_on_save = 1
@@ -334,12 +334,3 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-
-"=====================================================
-"" Input source (only) English except Insert mode
-"=====================================================
-if has('mac') && filereadable('/usr/local/lib/libInputSourceSwitcher.dylib')
-    let g:XkbSwitchEnabled = 1
-    let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
-endif
