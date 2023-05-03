@@ -11,6 +11,8 @@
 let mapleader = ","
 
 set mouse=a
+set ignorecase  "검색시 검색어의 대소문자를 무시한다.
+set noimd
 
 " let $vimhome=fnamemodify(resolve(expand("~/.vimrc")), ':p:h')
 " let $vundle=$vimhome."/bundle/Vundle.vim"
@@ -42,6 +44,7 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
     Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
     Plugin 'tribela/vim-transparent'
+    Plugin 'lyokha/vim-xkbswitch'               " Input source control
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'garbas/vim-snipmate'                " Snippets manager
@@ -331,3 +334,12 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+
+"=====================================================
+"" Input source (only) English except Insert mode
+"=====================================================
+if has('mac') && filereadable('/usr/local/lib/libInputSourceSwitcher.dylib')
+    let g:XkbSwitchEnabled = 1
+    let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+endif
