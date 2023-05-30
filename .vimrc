@@ -34,7 +34,6 @@ call vundle#begin()
     Plugin 'preservim/nerdcommenter'            " Fast commenter
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
-    Plugin 'github/copilot'                     " Suggest code and entire functions in real-time
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'garbas/vim-snipmate'                " Snippets manager
@@ -54,8 +53,9 @@ call vundle#begin()
     "-------------------=== Markdown ===-----------------------------
     Plugin 'plasticboy/vim-markdown'            " Syntax highlighting, matching rules and mappings for Markdown 
     Plugin 'chrisbra/csv.vim'                   " CSV formatter
-    Plugin 'goerz/jupytext.vim'                 " Open and edit .ipynb notebooks in vim
     Plugin 'metakirby5/codi.vim'                " line-by-line running for interpretable language (great debugging tool)
+    Plugin 'iamcco/markdown-preview.nvim'       " Markdown preview via internet explorer
+    " Plugin 'goerz/jupytext.vim'                 " Open and edit .ipynb notebooks in vim
 
     "-------------------=== Tmux ===-----------------------------
     Plugin 'christoomey/vim-tmux-navigator'     " navigate seamlessly between vim and tmux splits 
@@ -168,6 +168,11 @@ let g:riv_disable_folding=1
 "" vim-markdown settings
 "=====================================================
 let g:vim_markdown_folding_disabled = 1
+
+"=====================================================
+"" markdown preview settings
+"=====================================================
+let g:mkdp_auto_start = 1
 
 "=====================================================
 "" Codi settings
@@ -305,6 +310,11 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = '𝗫'              "Lint error sign
 let g:ale_sign_warning = '⚠'                                "Lint warning sign
 let g:ale_statusline_format =[' %d E ', ' %d W ', '']       "Status line texts
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
