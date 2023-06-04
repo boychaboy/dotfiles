@@ -41,9 +41,6 @@ os_type=$OSTYPE
 if [[ "$os_type" == "linux-gnu" ]]; then
     printf "Linux OS\n"
     sh ./install_linux.sh
-elif [[ "$os_type" == "darwin"* ]]; then
-    printf "Mac OS\n"
-    sh ./install_mac.sh
 else
     printf "Unsupported os!
     Now aborting..."
