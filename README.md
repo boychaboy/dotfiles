@@ -10,9 +10,13 @@
 
 ## Installation
 **Linux**
-`sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_ubuntu.sh)"`
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_ubuntu.sh)"
+```
 **Mac**
-`sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_mac.sh)"`
+```shell
+sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_mac.sh)"
+```
 
 ## Update
 `TBD`
