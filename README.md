@@ -1,38 +1,24 @@
 # dotfiles
-### Requirements  
-```shell
-zsh
-oh-my-zsh
-vim>=8.2
-Vundle
-tmux
-tmux-plugin-manager
-````
-**tmux**  
-```shell
-# apt-get
-sudo apt-get install -y tmux
-sudo apt install tmux-plugin-manager
-# yum
-sudo yum install tmux 
-```
-**python3**
-```shell
-sudo yum update -y
-sudo yum install -y python3
-```
-**vundle**
-```shell
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    echo "Successfully installed Vundle.vim"
-fi
-```
+> 개발 환경 세팅 자동화를 위한 dotfiles 및 shell scripts
+
+## Supported OS
+**Linux**
+- [Ubuntu 22.04.2 LTS](https://releases.ubuntu.com/jammy/)
+
+**MacOS**
+- 13.4 (with Apple Silicon)
 
 ## Installation
+**Linux**
+`sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_ubuntu.sh)"`
+**Mac**
+`sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_mac.sh)"`
 
-### MacOS
+## Update
+`TBD`
 
+
+## Manual
 #### Homebrew for MacOS
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -42,7 +28,6 @@ brew update
 brew bundle --file=dotfiles/.brewfile
 ```
 #### Oh-my-zsh
-
 ```bash
 # oh-my-zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
@@ -123,4 +108,3 @@ echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
 - `The ycmd server SHUT DOWN (restart with :YcmRestartServer)` error
     - `CMake 3.14 or higher is required`: [[Linux] CentOS7 Cmake version update or install](https://codinghero.tistory.com/174)
     - `Your C++ compiler does NOT fully support C++17.`: [Your C++ compiler does NOT fully support C++17](https://stackoverflow.com/questions/65284572/your-c-compiler-does-not-fully-support-c17)
-    
