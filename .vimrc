@@ -12,10 +12,6 @@ let mapleader = ","
 
 set mouse=a
 set ignorecase  "검색시 검색어의 대소문자를 무시한다.
-set noimd
-
-" let $vimhome=fnamemodify(resolve(expand("~/.vimrc")), ':p:h')
-" let $vundle=$vimhome."/bundle/Vundle.vim"
 
 " Be iMproved
 set nocompatible
@@ -34,6 +30,17 @@ call vundle#begin()
     Plugin 'preservim/nerdcommenter'            " Fast commenter
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
+    Plugin 'preservim/nerdcommenter'
+
+    "-------------------=== Other ===-------------------------------
+    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
+    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
+    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
+    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
+    Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
+    Plugin 'tribela/vim-transparent'
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'garbas/vim-snipmate'                " Snippets manager
@@ -60,15 +67,6 @@ call vundle#begin()
     "-------------------=== Tmux ===-----------------------------
     Plugin 'christoomey/vim-tmux-navigator'     " navigate seamlessly between vim and tmux splits 
 
-    "-------------------=== Other ===-------------------------------
-    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'tomasiser/vim-code-dark'            " VSCode Color Scheme
-    Plugin 'tribela/vim-transparent'
 
 call vundle#end()                           " required
 filetype on
@@ -344,3 +342,4 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+let &t_SI="\<Esc>[2 q"
