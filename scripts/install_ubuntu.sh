@@ -28,13 +28,4 @@ fi
 # Install plugins
 vim +PluginInstall +qall
 
-# Install miniconda
-"""
-echo ""
-echo "Install Miniconda"
-mkdir -p ${HOME}/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -O ${HOME}/miniconda3/miniconda.sh
-bash ${HOME}/miniconda3/miniconda.sh -b -u -p ${HOME}/miniconda3
-rm -rf ${HOME}/miniconda3/miniconda.sh
-"""
 source ${HOME}/.zshrc
