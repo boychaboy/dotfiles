@@ -45,11 +45,21 @@ rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init zsh
 
 # ----------------------------------------------------------------------
-# | ETC                                                                |
+# | Set up .zshrc                                                     |
 # ----------------------------------------------------------------------
-pip3 install black flake8 numpy pandas tqdm ipdb scikit-learn requests
-echo -e 'alias ca="conda activate"\nalias da="conda deactivate"\nalias envs="conda info --envs"\nalias py="python"\nalias mv="mv alias\ncp="cp -i"\nalias cat="bat"' >> ~/.zshrc
-
+# alias
+echo 'alias ca="conda activate"\nalias da="conda deactivate"\nalias envs="conda info --envs"\nalias py="python"\nalias cat="bat"\ntmux="tmux -u"' >> ~/.    zshrc
+export TERM=xterm-256color
 source ${HOME}/.zshrc
 
-printf "\033Done!\033[0m"
+# ----------------------------------------------------------------------
+# | ETC                                                                |
+# ----------------------------------------------------------------------
+# python packages for base
+pip3 install black flake8 numpy pandas tqdm ipdb scikit-learn requests
+
+# github config
+git config --global user.email "hoon2j@gmail.com"
+git config --global user.name "boychaboy"
+
+printf "\n✨Done!"
