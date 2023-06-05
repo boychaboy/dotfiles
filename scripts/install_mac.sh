@@ -1,6 +1,53 @@
 #!/bin/bash
 
-printf "Welcome to boychaboy's MAC OS installer!\n\n"
+printf "-----------------------------------------------------------------"
+printf "|      Boychaboy's dotfile installer for Mac OS                 |"
+printf "-----------------------------------------------------------------"
+
+# ----------------------------------------------------------------------
+# | Clone dotfile repository                                           |
+# ----------------------------------------------------------------------
+printf "\033[33mCloning Repository...\033[0m\n"
+if [ ! -d ${HOME}/.dotfiles ]; then
+    echo "dotfiles doesn't exist in ${HOME}/.dotfiles"
+    echo "Do you want to clone repository?"
+    echo "  git@github.com:boychaboy/dotfiles.git >> ${HOME}/.dotfiles"
+    echo ""
+    read -p "Proceed (y/n [n])? " choice
+    case "$choice" in 
+        y|Y ) 
+            git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles;;
+        n|N|"" )
+            echo ""
+    esac
+else
+    printf ".dotfile already esists in ${HOME}/.dotfiles
+    TIP: if you already installed dotfiles in your system, run 'update.sh' to update dotfiles"
+    echo ""
+    read -p "Do you want to overwrite? (y/n [n])?" choice
+    case "$choice" in
+        y|Y )
+            rm -rf ${HOME}/.dotfiles
+            git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles;;
+        n|N|"" )
+    esac
+    exit 0
+fi
+
+# ----------------------------------------------------------------------
+# |  Check OS type                                                     |
+# ----------------------------------------------------------------------
+printf "\033[33mCheck os type...\033[0m\n"
+
+os_type=$OSTYPE
+if [[ "$os_type" == "darwin"* ]]; then
+    printf "Mac OS\n"
+
+else
+    printf "Unsupported os!
+    Now aborting..."
+    exit 1
+fi
 
 # ----------------------------------------------------------------------
 # | Backup & Link                                                      |
@@ -70,7 +117,7 @@ case "$choice" in
 esac
 
 # ----------------------------------------------------------------------
-# | 1. Homebrew                                                        |
+# | Homebrew                                                        |
 # ----------------------------------------------------------------------
 
 echo ""
@@ -96,7 +143,7 @@ case "$choice" in
 esac
 
 # ----------------------------------------------------------------------
-# | 2. oh-my-zsh                                                       |
+# | oh-my-zsh                                                       |
 # ----------------------------------------------------------------------
 
 echo ""
@@ -119,7 +166,7 @@ fi
 echo "> Successfully installed oh-my-zsh, zsh-syntax-highlighting, zsh-autosuggestions, alias-tips, and powerlevel10k"
 
 # ----------------------------------------------------------------------
-# | 3. vim                                                             |
+# | vim                                                             |
 # ----------------------------------------------------------------------
 
 echo ""
@@ -151,7 +198,7 @@ case "$choice" in
 esac
 
 # ----------------------------------------------------------------------
-# | 4. Conda                                                           |
+# | Conda                                                           |
 # ----------------------------------------------------------------------
 
 # Install miniconda

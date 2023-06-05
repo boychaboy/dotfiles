@@ -30,7 +30,6 @@ call vundle#begin()
     Plugin 'preservim/nerdcommenter'            " Fast commenter
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
-    Plugin 'preservim/nerdcommenter'
 
     "-------------------=== Other ===-------------------------------
     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
