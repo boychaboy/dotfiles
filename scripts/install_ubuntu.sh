@@ -7,7 +7,7 @@ printf "Welcome to boychaboy's dotfiles installer!\n\n"
 # ----------------------------------------------------------------------
 printf "\033[33mCloning Repository...\033[0m\n"
 echo "  git@github.com:boychaboy/dotfiles.git >> ${HOME}/.dotfiles"
-git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles
+git clone -b ubuntu-22.04 https://github.com/boychaboy/dotfiles.git ${HOME}/.dotfiles
 
 # ----------------------------------------------------------------------
 # | Clone dotfile repository                                           |
