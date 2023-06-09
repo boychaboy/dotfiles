@@ -167,9 +167,10 @@ let g:riv_disable_folding=1
 let g:vim_markdown_folding_disabled = 1
 
 "=====================================================
-"" markdown preview settings
+"" iamcco/markdown-preview settings
 "=====================================================
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
+nmap <leader>m <Plug>MarkdownPreview
 
 "=====================================================
 "" Codi settings
@@ -321,9 +322,7 @@ if has("autocmd")
 endif
 
 " save
-imap <C-s> <ESC>:w<CR>
 nmap <leader>s :w<CR>
-imap <C-q> <ESC>:q!<CR>
 nmap <leader>q :q!<CR>
 map <leader>w :bp<bar>sp<bar>bn<bar>bd<CR>
 

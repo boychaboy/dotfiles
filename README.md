@@ -9,7 +9,7 @@
 **MacOS**
 - 13.4 (with Apple Silicon)
 
-## Installation
+## Install
 **Linux**
 ```shell
 sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_ubuntu.sh)"
@@ -19,11 +19,33 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scri
 sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scripts/install_mac.sh)"
 ```
 
-## Update
-`TBD`
+## Key bindings 
+**Default key bindings**  
+Checkout [cheatsheet/vim]()
+```vim
+```
+**Custom key bindings**
+```vim
+# General
+nmap <leader>m <Plug>MarkdownPreview " Markdown preview with browser
+nmap ' :NERDTreeToggle<CR> " Open Nerdtree
+nmap <leader>s :w<CR> " Save
+nmap <leader>q :q!<CR> " Quit
+
+# Python
+" Add/Remove breakpoint
+let g:pymode_breakpoint_key='<leader>b'
+let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace(context=10)  # fmt: skip'
 
 
-## Manual
+```
+
+
+
+
+
+
+## Misc 
 #### Homebrew for MacOS
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -37,17 +59,13 @@ brew bundle --file=dotfiles/.brewfile
 # oh-my-zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 # chsh -s $(which zsh)
-
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM1:-$ZSH/custom}/plugins/alias-tips
 # export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Alias tip: "
 ```
 
-### CentOS
-
+#### CentOS
 ```shell
 # backup previous dotfiles
 mkdir -p $HOME/.dotfiles.backup
@@ -95,7 +113,7 @@ rm ~/miniconda.sh
 echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
 
 ```
-**issue**
+**issues**
 - [How to Install Vim 8.2 on CentOS 7](https://phoenixnap.com/kb/how-to-install-vim-centos-7)
 - [How to install the latest stable tmux on CentOS 7](https://liyang85.wordpress.com/2017/07/28/how-to-install-the-latest-stable-tmux-on-centos-7/)
 - [How to Compile VIM with python3.6++](https://dev.to/huang06/compiling-vim-with-python3-support-8jh)
