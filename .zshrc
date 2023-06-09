@@ -117,3 +117,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
