@@ -332,12 +332,15 @@ tnoremap <Esc> <C-\><C-n>
 " json
 nmap <leader>j :%!python -m json.tool<CR>
 
-" iterm cursor shape
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" tmux cursor shape
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-let &t_SI="\<Esc>[2 q"
+
+" cursor shape
+" Options (replace the number after '\e[')
+"    Ps = 0  -> blinking block.
+"    Ps = 1  -> blinking block (default).
+"    Ps = 2  -> steady block.
+"    Ps = 3  -> blinking underline.
+"    Ps = 4  -> steady underline.
+"    Ps = 5  -> blinking bar (xterm).
+"    Ps = 6  -> steady bar (xterm).
+let &t_SI = "\e[5 q" " insert mode
+let &t_EI = "\e[1 q" " normal mode
