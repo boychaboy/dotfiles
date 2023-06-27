@@ -122,3 +122,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
 
+# t to trigger taskell (todo list)
+case "$OSTYPE" in
+  darwin*)
+  alias t="taskell ~/Dropbox"
+  ;;
+  linux*)
+  ;;
+  dragonfly*|freebsd*|netbsd*|openbsd*)
+  ;;
+esac
