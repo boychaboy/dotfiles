@@ -55,6 +55,7 @@ call vundle#begin()
     "-------------------=== Python  ===-----------------------------
     Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
     Plugin 'dense-analysis/ale'                 " Lint and fix
+    Plugin 'jupyter-vim/jupyter-vim'            " Jupyter-Vim
     
     "-------------------=== Markdown ===-----------------------------
     Plugin 'plasticboy/vim-markdown'            " Syntax highlighting, matching rules and mappings for Markdown 
@@ -299,15 +300,15 @@ nmap <leader>d :YcmCompleter GoToDefinition<CR>
 "" Ale settings
 "=====================================================
 " 
-let g:ale_linters = {'python': ['flake8']}              "Lint
-let g:ale_fixers = {'python': ['black']}             "Fix errors
+let g:ale_linters = {'python': ['flake8', 'isort']}     "Lint
+let g:ale_fixers = {'python': ['black']}                "Fix errors
 let g:ale_python_flake8_options = '--max-line-length=120'
 let g:ale_python_flake8_options = '--ignore=E501,W503,E203,E702'
-let g:ale_lint_on_save = 1              "Lint when saving a file
+let g:ale_lint_on_save = 1                              "Lint when saving a file
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = '𝗫'              "Lint error sign
-let g:ale_sign_warning = '⚠'                                "Lint warning sign
-let g:ale_statusline_format =[' %d E ', ' %d W ', '']       "Status line texts
+let g:ale_sign_error = '𝗫'                              "Lint error sign
+let g:ale_sign_warning = '⚠'                            "Lint warning sign
+let g:ale_statusline_format =[' %d E ', ' %d W ', '']   "Status line texts
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'

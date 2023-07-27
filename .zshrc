@@ -78,10 +78,10 @@ plugins=(
 	git
 	docker
 	alias-tips
-	fasd
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	fzf
+    autojump
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -98,7 +98,6 @@ alias py="python"
 alias mv="mv -i"
 alias cp="cp -i"
 alias jobs="jobs -l"
-alias cat="bat"
 
 # export PATH="~/miniconda3/bin:$PATH"  # commented out by conda initialize
 
