@@ -83,6 +83,7 @@ plugins=(
 	fzf
     autojump
 )
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -131,3 +132,6 @@ case "$OSTYPE" in
   dragonfly*|freebsd*|netbsd*|openbsd*)
   ;;
 esac
+
+# kubectl alias
+alias kubectl="kubectl --kubeconfig ~/.kube/younghoon-j-aisuite-prod.conf"

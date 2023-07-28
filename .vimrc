@@ -142,14 +142,14 @@ let g:airline_powerline_fonts=1
 let g:tagbar_autofocus=0
 let g:tagbar_width=30
 "autocmd BufEnter *.py :call tagbar#autoopen(0)
-nmap " :TagbarToggle<CR>
+nmap ' :TagbarToggle<CR>
 "=====================================================
 "" NERDTree settings
 "=====================================================
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
 let NERDTreeWinSize=30
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
-nmap ' :NERDTreeToggle<CR>
+nmap \ :NERDTreeToggle<CR>
 
 "=====================================================
 "" SnipMate settings
@@ -345,3 +345,5 @@ nmap <leader>j :%!python -m json.tool<CR>
 "    Ps = 6  -> steady bar (xterm).
 let &t_SI = "\e[5 q" " insert mode
 let &t_EI = "\e[1 q" " normal mode
+
+nmap ㅑ i
