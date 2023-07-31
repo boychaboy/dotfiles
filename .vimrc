@@ -303,7 +303,7 @@ nmap <leader>d :YcmCompleter GoToDefinition<CR>
 let g:ale_linters = {'python': ['flake8', 'isort']}     "Lint
 let g:ale_fixers = {'python': ['black']}                "Fix errors
 let g:ale_python_flake8_options = '--max-line-length=120'
-let g:ale_python_flake8_options = '--ignore=E501,W503,E203,E702'
+let g:ale_python_flake8_options = '--ignore=E501,W503,E203,E702,E402'
 let g:ale_lint_on_save = 1                              "Lint when saving a file
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '𝗫'                              "Lint error sign
