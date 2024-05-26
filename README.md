@@ -131,3 +131,12 @@ echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
 - `The ycmd server SHUT DOWN (restart with :YcmRestartServer)` error
     - `CMake 3.14 or higher is required`: [[Linux] CentOS7 Cmake version update or install](https://codinghero.tistory.com/174)
     - `Your C++ compiler does NOT fully support C++17.`: [Your C++ compiler does NOT fully support C++17](https://stackoverflow.com/questions/65284572/your-c-compiler-does-not-fully-support-c17)
+    - 
+
+
+#### YMC for MacOS
+```
+YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support.
+```
+- 해결: https://gist.github.com/SofijaErkin/d428dcbf6a651673af63f45e851783cf
+```
