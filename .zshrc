@@ -134,4 +134,6 @@ case "$OSTYPE" in
 esac
 
 # kubectl alias
-alias kubectl="kubectl --kubeconfig ~/.kube/younghoon-j-aisuite-prod.conf"
+alias kubectl="kubectl --kubeconfig ~/.kube/younghun-j-aisuite-prod.conf"
+alias kubectl-seat="kubectl --kubeconfig ~/.kube/seatteam-aisuite-prod.conf"
+alias kubectl-sgpt="kubectl --kubeconfig ~/.kube/search-gpt-aisuite-prod.conf"
