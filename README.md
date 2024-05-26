@@ -139,4 +139,8 @@ echo 'export PATH="$HOME/miniconda3/bin:$PATH"' >> ~/.zshrc
 YouCompleteMe unavailable: requires Vim compiled with Python (3.8.0+) support.
 ```
 - 해결: https://gist.github.com/SofijaErkin/d428dcbf6a651673af63f45e851783cf
+- ```
+brew reinstall python3
+brew uninstall vim
+brew install vim
 ```
