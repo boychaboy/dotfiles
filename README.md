@@ -144,3 +144,11 @@ brew reinstall python3
 brew uninstall vim
 brew install vim
 ```
+The ycmd server SHUT DOWN (restart with :YcmRestartServer)
+```
+- 필요한 패키지 설치 후 수동으로 build
+  ```
+  brew install cmake go npm
+  cd ~/vim/bundle/YouCompleteMe/
+  python3 install.py --all --verbose
+  ```
