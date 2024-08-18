@@ -1,0 +1,6 @@
+brew "jq"
+brew "git"
+brew "tldr"
+brew "vim"
+brew "tmux"
+brew "xclip"
