@@ -26,25 +26,6 @@ apt-get install python3 python3-pip -y
 apt-get install autojump net-tools
 
 # ----------------------------------------------------------------------
-# | Create symbolic links to new dotfiles                              |
-# ----------------------------------------------------------------------
-if [ -e $HOME/.vimrc ]; then
-    mv $HOME/.vimrc $HOME/.vimrc.backup
-fi
-if [ -e $HOME/.zshrc ]; then
-    mv $HOME/.zshrc $HOME/.zshrc.backup
-fi
-if [ -e $HOME/.tmux.conf ]; then
-    mv $HOME/.tmux.conf $HOME/.tmux.conf.backup
-fi
-
-ln -sf ${HOME}/.dotfiles/.vimrc ${HOME}/.vimrc
-ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
-ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
-
-echo "Symbolic links created to new dotfiles for [.vimrc, .zshrc, .tmux.conf]"
-
-# ----------------------------------------------------------------------
 # | Set up .zshrc                                                     |
 # ----------------------------------------------------------------------
 
@@ -60,6 +41,26 @@ git clone https://github.com/djui/alias-tips.git ~/.oh-my-zsh/custom/plugins/ali
 
 # ZSH-setting
 chsh -s /bin/zsh
+
+# ----------------------------------------------------------------------
+# | Create symbolic links to new dotfiles                              |
+# ----------------------------------------------------------------------
+if [ -e $HOME/.vimrc ]; then
+    mv $HOME/.vimrc $HOME/.vimrc.backup
+fi
+if [ -e $HOME/.zshrc ]; then
+    mv $HOME/.zshrc $HOME/.zshrc.backup
+fi
+if [ -e $HOME/.tmux.conf ]; then
+    mv $HOME/.tmux.conf $HOME/.tmux.conf.backup
+fi
+
+ln -sf ${HOME}/.dotfiles/.vimrc ${HOME}/.vimrc
+ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
+ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
+ln -sf ${HOME}/.dotfiles/.p10k.zsh ${HOME}/.p10k.zsh
+
+echo "Symbolic links created to new dotfiles for [.vimrc, .zshrc, .tmux.conf]"
 
 # ----------------------------------------------------------------------
 # | Install miniconda                                                  |
