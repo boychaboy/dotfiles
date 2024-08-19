@@ -114,4 +114,5 @@ apt-get clean && \
 	rm -rf /var/lib/log/* && \
     rm -rf /root/Dockerfile
 
+source ~/.zshrc
 printf "\n✨Done!"
