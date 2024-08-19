@@ -44,27 +44,27 @@ RUN ~/miniconda3/bin/conda init zsh
 # ----------------------------------------------------------------------
 # | Set up .vimrc                                                      |
 # ----------------------------------------------------------------------
-# a. Install vundle
+# Install vundle
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# b. Build YCM
+# Build YCM
 RUN apt-get install -y build-essential cmake vim-nox python3-dev
 RUN apt-get install -y mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
 RUN apt-get install -y vim-youcompleteme
 
-# c. Install plugins
+# Install plugins
 RUN script -c 'vim +PluginInstall +qall' /dev/null
 
-# d. Recomplie YCM
-# - compile ycm without c#, go, java, rust, support
+# Recomplie YCM
+# - without c#, go, java, rust, support
 RUN python3 ~/.vim/bundle/YouCompleteMe/install.py --force-sudo --verbose
 
-# e. Install required packages
+# Install required packages
 RUN pip install --upgrade pip
 RUN pip install ipdb black flake8 jsonlines
 
 # ----------------------------------------------------------------------
-# | Finish                                                             |
+# | ETC                                                                |
 # ----------------------------------------------------------------------
 
 # Time & Location 
