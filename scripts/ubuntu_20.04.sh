@@ -1,15 +1,25 @@
 #!/bin/bash
 
-printf "--------------------------------------------------------------------"
-printf "| Boychaboy's dotfile installer for Ubuntu 20.04 LTS (Focal Fossa) |"
-printf "--------------------------------------------------------------------"
+echo "\t--------------------------------------------------------------------"
+echo "\t| Boychaboy's dotfile installer for Ubuntu 20.04 LTS (Focal Fossa) |"
+echo "\t--------------------------------------------------------------------"
 
 # ----------------------------------------------------------------------
-# | General                                                      |
+# | General                                                            |
 # ----------------------------------------------------------------------
+# tzdata 구성을 위한 비대화형 설치 설정
+export DEBIAN_FRONTEND=noninteractive
+
+# tzdata에 대한 사전 설정
+ln -fs /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+echo "Asia/Seoul" | tee /etc/timezone
+
+# tzdata 패키지 설치
+apt-get update
+apt-get install -y tzdata
+
 # basic packages
-apt-get -y update &&\
- apt-get install -y git wget zsh tzdata vim openssh-server sudo curl tmux exuberant-ctags
+apt-get install -y git wget zsh vim openssh-server sudo curl tmux exuberant-ctags
 # python packages
 apt-get install python3 python3-pip -y
 # extra packages
