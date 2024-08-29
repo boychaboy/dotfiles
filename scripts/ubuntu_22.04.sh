@@ -55,12 +55,14 @@ if [ -e $HOME/.tmux.conf ]; then
     mv $HOME/.tmux.conf $HOME/.tmux.conf.backup
 fi
 
-ln -sf ${HOME}/.dotfiles/.vimrc ${HOME}/.vimrc
-ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
-ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
-ln -sf ${HOME}/.dotfiles/.p10k.zsh ${HOME}/.p10k.zsh
+git clone https://github.com/boychaboy/dotfiles.git ${HOME}/.dotfiles
 
-echo "Symbolic links created to new dotfiles for [.vimrc, .zshrc, .tmux.conf]"
+ln -sf ${HOME}/.dotfiles/vimrc/.vimrc ${HOME}/.vimrc
+ln -sf ${HOME}/.dotfiles/zshrc/.zshrc ${HOME}/.zshrc
+ln -sf ${HOME}/.dotfiles/tmux/.tmux.conf ${HOME}/.tmux.conf
+ln -sf ${HOME}/.dotfiles/zshrc/.p10k.zsh ${HOME}/.p10k.zsh
+
+echo "Symbolic links created to new dotfiles for [.vimrc, .zshrc, .p10k, .tmux.conf]"
 
 # ----------------------------------------------------------------------
 # | Install miniconda                                                  |
