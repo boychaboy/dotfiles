@@ -58,7 +58,7 @@ fi
 git clone https://github.com/boychaboy/dotfiles.git ${HOME}/.dotfiles
 
 ln -sf ${HOME}/.dotfiles/vimrc/.vimrc ${HOME}/.vimrc
-ln -sf ${HOME}/.dotfiles/zshrc/.zshrc ${HOME}/.zshrc
+ln -sf ${HOME}/.dotfiles/zshrc/.zshrc.ubuntu ${HOME}/.zshrc
 ln -sf ${HOME}/.dotfiles/tmux/.tmux.conf ${HOME}/.tmux.conf
 ln -sf ${HOME}/.dotfiles/zshrc/.p10k.zsh ${HOME}/.p10k.zsh
 
