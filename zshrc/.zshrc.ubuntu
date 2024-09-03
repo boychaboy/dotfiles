@@ -90,3 +90,32 @@ source $ZSH/oh-my-zsh.sh
 
 # auto-suggestion muted gray color
 export TERM=xterm-256color
+
+# ----------------------------------------------------------------------
+# |                         Personal Alias                             |
+# ----------------------------------------------------------------------
+# loop command
+loop() {
+    if [ -z "$1" ]; then
+      echo "Usage: $0 <command>"
+      exit 1
+    fi
+
+    local command="$1"
+    echo "Looping '$1' every 3 sec...\n"
+
+    while true; do
+        eval "$command"
+        sleep 3
+        echo "\n"
+    done
+}
+
+# For a full list of active aliases, run `alias`.
+alias ca="conda activate"
+alias da="conda deactivate"
+alias vi="vim"
+alias envs="conda info --envs"
+alias mv="mv -i"
+alias cp="cp -i"
+
