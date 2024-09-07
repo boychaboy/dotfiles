@@ -25,9 +25,9 @@ apt-get install python3 python3-pip -y
 # extra packages
 apt-get install autojump net-tools
 
-# ----------------------------------------------------------------------
-# | Set up .zshrc                                                     |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | Set up .zshrc                                                     |
+echo # ----------------------------------------------------------------------
 
 # ZSH 
 apt-get -y install fonts-powerline
@@ -42,9 +42,9 @@ git clone https://github.com/djui/alias-tips.git ~/.oh-my-zsh/custom/plugins/ali
 # ZSH-setting
 chsh -s /bin/zsh
 
-# ----------------------------------------------------------------------
-# | Create symbolic links to new dotfiles                              |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | Create symbolic links to new dotfiles                              |
+echo # ----------------------------------------------------------------------
 if [ -e $HOME/.vimrc ]; then
     mv $HOME/.vimrc $HOME/.vimrc.backup
 fi
@@ -57,25 +57,25 @@ fi
 
 git clone https://github.com/boychaboy/dotfiles.git ${HOME}/.dotfiles
 
-ln -sf ${HOME}/.dotfiles/vimrc/.vimrc ${HOME}/.vimrc
-ln -sf ${HOME}/.dotfiles/zshrc/.zshrc.ubuntu ${HOME}/.zshrc
-ln -sf ${HOME}/.dotfiles/tmux/.tmux.conf ${HOME}/.tmux.conf
-ln -sf ${HOME}/.dotfiles/zshrc/.p10k.zsh ${HOME}/.p10k.zsh
+ln -sf ${HOME}/.dotfiles/vimrc/vimrc ${HOME}/.vimrc
+ln -sf ${HOME}/.dotfiles/zshrc/zshrc.ubuntu ${HOME}/.zshrc
+ln -sf ${HOME}/.dotfiles/tmux/tmux.conf ${HOME}/.tmux.conf
+ln -sf ${HOME}/.dotfiles/zshrc/p10k.zsh ${HOME}/.p10k.zsh
 
 echo "Symbolic links created to new dotfiles for [.vimrc, .zshrc, .p10k, .tmux.conf]"
 
-# ----------------------------------------------------------------------
-# | Install miniconda                                                  |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | Install miniconda                                                  |
+echo # ----------------------------------------------------------------------
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init zsh
 
-# ----------------------------------------------------------------------
-# | Set up .vimrc                                                      |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | Set up .vimrc                                                      |
+echo # ----------------------------------------------------------------------
 # Install vundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -95,17 +95,17 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --force-sudo --verbose
 pip install --upgrade pip
 pip install ipdb black flake8 jsonlines numpy pandas tqdm scikit-learn requests
 
-# ----------------------------------------------------------------------
-# | Set up .zshrc                                                     |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | Set up .zshrc                                                     |
+echo # ----------------------------------------------------------------------
 # alias
 echo 'alias ca="conda activate"\nalias da="conda deactivate"\nalias envs="conda info --envs"\nalias py="python"\nalias cat="bat"\ntmux="tmux -u"' >> ~/.    zshrc
 export TERM=xterm-256color
 source ${HOME}/.zshrc
 
-# ----------------------------------------------------------------------
-# | ETC                                                                |
-# ----------------------------------------------------------------------
+echo # ----------------------------------------------------------------------
+echo # | ETC                                                                |
+echo # ----------------------------------------------------------------------
 # Time & Location 
 apt-get install -y language-pack-en && sudo update-locale
 
@@ -117,6 +117,6 @@ apt-get clean && \
 	rm -rf /var/lib/log/* && \
     rm -rf /root/Dockerfile
 
-# source ~/.zshrc
 zsh
+echo ""
 echo "✨Done!✨"

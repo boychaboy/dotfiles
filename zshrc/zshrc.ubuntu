@@ -116,6 +116,3 @@ alias ca="conda activate"
 alias da="conda deactivate"
 alias vi="vim"
 alias envs="conda info --envs"
-alias mv="mv -i"
-alias cp="cp -i"
-
