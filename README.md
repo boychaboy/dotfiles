@@ -27,7 +27,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/boychaboy/dotfiles/main/scri
 
 ## How to use
 **Default key bindings**  
-Checkout [cheatsheet/vim]()
+- Checkout [cheatsheet/vim]()
 
 **Custom key bindings**
 ```vim
