@@ -1,4 +1,4 @@
-# dotfiles
+# 🍵 boychaboy's dotfiles 
 ## Description
 개발 환경 세팅을 위한 config 파일 및 설치 스크립트
 - [miniconda](https://docs.anaconda.com/miniconda/)
