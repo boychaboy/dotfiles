@@ -11,12 +11,12 @@ printf "\033[33mCloning Repository...\033[0m\n"
 if [ ! -d ${HOME}/.dotfiles ]; then
     echo "dotfiles doesn't exist in ${HOME}/.dotfiles"
     echo "Do you want to clone repository?"
-    echo "  git@github.com:boychaboy/dotfiles.git >> ${HOME}/.dotfiles"
+    echo "  https://github.com/boychaboy/dotfiles.git >> ${HOME}/.dotfiles"
     echo ""
     read -p "Proceed (y/n [n])? " choice
     case "$choice" in 
         y|Y ) 
-            git clone --recursive git@github.com:boychaboy/dotfiles.git ${HOME}/.dotfiles;;
+            git clone --recursive https://github.com/boychaboy/dotfiles.git ${HOME}/.dotfiles;;
         n|N|"" )
             echo ""
     esac
